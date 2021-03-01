@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html -->
+<html lang="en" class="js sidebar-visible navy" ml-view="top" ml-is-active="" ml-mode="complex" ml-update="aware" ml-stage="complete" style="--ml-background-lightness-limit:0.14; --ml-zoom:1 !important; background-color: rgb(5, 5, 8) !important; color: rgb(203, 196, 192) !important;" ml-platform="desktop" ml-invert="" ml-scrollbar-style="ml-simple" ml-stage-mode="complete-complex"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>CoppeliaSim Tutorials - eYRC 2020-21: Nirikshak Bot (NB)</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgb(34, 36, 37)">
+
+        <!-- 
+        <link rel="icon" href="favicon.svg">
+         -->
+        
+        <link rel="shortcut icon" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/favicon.png">
+        
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/variables.css">
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/general.css">
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/chrome.css">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/highlight.css" disabled="">
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/tomorrow-night.css">
+        <link rel="stylesheet" href="./CoppeliaSim Tutorials _files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async="" src="./CoppeliaSim Tutorials _files/analytics.js.download"></script><script async="" type="text/javascript" src="./CoppeliaSim Tutorials _files/MathJax.js.download"></script>
+        
+    <style id="midnight-lizard-dynamic-values">:root { 
+--ml-main-background-color:rgb(34, 36, 37);
+--ml-main-background-color-filtered:rgb(34, 36, 37);
+--ml-main-alt-background-color:rgb(24, 26, 27);
+--ml-main-alt-background-color-filtered:rgb(24, 26, 27);
+--ml-main-trans-background-color:rgba(34, 36, 37, 0.5);
+--ml-main-trans-alt-background-color:rgba(24, 26, 27, 0.3);
+--ml-main-text-color:rgb(209, 203, 199);
+--ml-main-trans-text-color:rgba(232, 229, 227, 0.6);
+--ml-main-text-color-filtered:rgb(209, 203, 199);
+--ml-main-border-color:rgb(123, 107, 101);
+--ml-main-trans-border-color:rgba(140, 122, 115, 0.3);
+--ml-main-range-fill-color:rgb(87, 74, 69);
+--ml-main-selection-color:rgb(12, 128, 223);
+--ml-main-selection-text-color:rgb(255, 255, 255);
+--ml-main-selection-shadow-color:rgba(0, 0, 0, 0.8);
+--ml-main-button-background-color:rgb(23, 27, 28);
+--ml-main-button-border-color:rgb(112, 97, 92);
+--ml-main-red-button-background-color:rgb(46, 5, 5);
+--ml-main-scrollbar-thumb-hover-color:rgb(107, 100, 97);
+--ml-main-scrollbar-thumb-normal-color:rgb(86, 80, 78);
+--ml-main-scrollbar-thumb-active-color:rgb(75, 70, 68);
+--ml-main-scrollbar-track-color:rgb(34, 36, 37);
+--ml-main-scrollbar-marks-color:rgb(209, 203, 199);
+--ml-main-scrollbar-shadow-color:rgba(0, 0, 0, 0.3);
+--ml-main-scrollbar-size:10px;
+--ml-main-moz-scrollbar-width:auto;
+--ml-main-moz-scrollbar-track-color:rgb(24, 26, 27);
+--ml-main-link-color:rgb(117, 182, 234);
+--ml-main-link-color-hover:rgb(144, 196, 238);
+--ml-main-link-color-active:rgb(113, 179, 234);
+--ml-main-visited-color:rgb(160, 117, 234);
+--ml-main-visited-color-hover:rgb(179, 144, 238);
+--ml-main-visited-color-active:rgb(157, 113, 234);
+--ml-main-scrollbar-marks-color-original:rgb(209, 203, 199);
+--ml-main-scrollbar-thumb-hover-color-original:rgb(107, 100, 97);
+--ml-main-scrollbar-thumb-normal-color-original:rgb(86, 80, 78);
+--ml-main-scrollbar-thumb-active-color-original:rgb(75, 70, 68);
+--ml-main-scrollbar-track-color-original:rgb(34, 36, 37);
+--ml-main-moz-scrollbar-track-color-original:rgb(24, 26, 27);
+--ml-main-scrollbar-shadow-color-original:rgba(0, 0, 0, 0.3);
+--ml-main-scrollbar-marks-color-filtered:rgb(209, 203, 199);
+--ml-main-scrollbar-thumb-hover-color-filtered:rgb(107, 100, 97);
+--ml-main-scrollbar-thumb-normal-color-filtered:rgb(86, 80, 78);
+--ml-main-scrollbar-thumb-active-color-filtered:rgb(75, 70, 68);
+--ml-main-scrollbar-track-color-filtered:rgb(34, 36, 37);
+--ml-main-moz-scrollbar-track-color-filtered:rgb(24, 26, 27);
+--ml-main-scrollbar-shadow-color-filtered:rgba(0, 0, 0, 0.3);
+--ml-background-saturation-limit:0.7;
+--ml-background-contrast:0.5;
+--ml-background-lightness-limit:0.14;
+--ml-background-gray-saturation:0.05;
+--ml-background-gray-hue:200;
+--ml-background-replace-all-hues:false;
+--ml-background-hue-gravity:0;
+--ml-highlighted-background-saturation-limit:0.91;
+--ml-highlighted-background-contrast:0.06;
+--ml-highlighted-background-lightness-limit:0.4;
+--ml-highlighted-background-gray-saturation:0.05;
+--ml-highlighted-background-gray-hue:200;
+--ml-highlighted-background-replace-all-hues:false;
+--ml-highlighted-background-hue-gravity:0;
+--ml-button-background-saturation-limit:0.8;
+--ml-button-background-contrast:0.04;
+--ml-button-background-lightness-limit:0.17;
+--ml-button-background-gray-saturation:0.1;
+--ml-button-background-gray-hue:190;
+--ml-button-background-replace-all-hues:false;
+--ml-button-background-hue-gravity:0;
+--ml-text-selection-saturation-limit:0.9;
+--ml-text-selection-contrast:0;
+--ml-text-selection-lightness-limit:0.46;
+--ml-text-selection-gray-saturation:0.9;
+--ml-text-selection-gray-hue:207;
+--ml-text-selection-replace-all-hues:true;
+--ml-text-selection-hue-gravity:0;
+--ml-text-saturation-limit:0.9;
+--ml-text-contrast:0.66;
+--ml-text-lightness-limit:0.9;
+--ml-text-gray-saturation:0.1;
+--ml-text-gray-hue:22;
+--ml-text-replace-all-hues:false;
+--ml-text-hue-gravity:0;
+--ml-highlighted-text-saturation-limit:1;
+--ml-highlighted-text-contrast:0.79;
+--ml-highlighted-text-lightness-limit:1;
+--ml-highlighted-text-gray-saturation:0.1;
+--ml-highlighted-text-gray-hue:22;
+--ml-highlighted-text-replace-all-hues:false;
+--ml-highlighted-text-hue-gravity:0;
+--ml-link-saturation-limit:0.8;
+--ml-link-contrast:0.55;
+--ml-link-lightness-limit:0.75;
+--ml-link-gray-saturation:0.74;
+--ml-link-gray-hue:207;
+--ml-link-replace-all-hues:false;
+--ml-link-hue-gravity:0.8;
+--ml-link-active-saturation-limit:0.8;
+--ml-link-active-contrast:0.55;
+--ml-link-active-lightness-limit:0.68;
+--ml-link-active-gray-saturation:0.74;
+--ml-link-active-gray-hue:207;
+--ml-link-active-replace-all-hues:false;
+--ml-link-active-hue-gravity:0.8;
+--ml-link-hover-saturation-limit:0.8;
+--ml-link-hover-contrast:0.61;
+--ml-link-hover-lightness-limit:0.83;
+--ml-link-hover-gray-saturation:0.74;
+--ml-link-hover-gray-hue:207;
+--ml-link-hover-replace-all-hues:false;
+--ml-link-hover-hue-gravity:0.8;
+--ml-visited-link-saturation-limit:0.8;
+--ml-visited-link-contrast:0.55;
+--ml-visited-link-lightness-limit:0.75;
+--ml-visited-link-gray-saturation:0.74;
+--ml-visited-link-gray-hue:262;
+--ml-visited-link-replace-all-hues:true;
+--ml-visited-link-hue-gravity:0;
+--ml-visited-link-hover-saturation-limit:0.8;
+--ml-visited-link-hover-contrast:0.61;
+--ml-visited-link-hover-lightness-limit:0.83;
+--ml-visited-link-hover-gray-saturation:0.74;
+--ml-visited-link-hover-gray-hue:262;
+--ml-visited-link-hover-replace-all-hues:true;
+--ml-visited-link-hover-hue-gravity:0;
+--ml-visited-link-active-saturation-limit:0.8;
+--ml-visited-link-active-contrast:0.55;
+--ml-visited-link-active-lightness-limit:0.68;
+--ml-visited-link-active-gray-saturation:0.74;
+--ml-visited-link-active-gray-hue:262;
+--ml-visited-link-active-replace-all-hues:true;
+--ml-visited-link-active-hue-gravity:0;
+--ml-text-shadow-saturation-limit:0.8;
+--ml-text-shadow-contrast:0.8;
+--ml-text-shadow-lightness-limit:1;
+--ml-text-shadow-gray-saturation:0.1;
+--ml-text-shadow-gray-hue:16;
+--ml-text-shadow-replace-all-hues:false;
+--ml-text-shadow-hue-gravity:0;
+--ml-border-saturation-limit:0.8;
+--ml-border-contrast:0.3;
+--ml-border-lightness-limit:0.5;
+--ml-border-gray-saturation:0.1;
+--ml-border-gray-hue:16;
+--ml-border-replace-all-hues:false;
+--ml-border-hue-gravity:0;
+--ml-button-border-saturation-limit:0.64;
+--ml-button-border-contrast:0.15;
+--ml-button-border-lightness-limit:0.4;
+--ml-button-border-gray-saturation:0.1;
+--ml-button-border-gray-hue:16;
+--ml-button-border-replace-all-hues:false;
+--ml-button-border-hue-gravity:0;
+--ml-scrollbar-hover-saturation-limit:0.05;
+--ml-scrollbar-hover-contrast:0;
+--ml-scrollbar-hover-lightness-limit:0.4;
+--ml-scrollbar-hover-gray-saturation:0.05;
+--ml-scrollbar-hover-gray-hue:16;
+--ml-scrollbar-hover-replace-all-hues:false;
+--ml-scrollbar-hover-hue-gravity:0;
+--ml-scrollbar-normal-saturation-limit:0.05;
+--ml-scrollbar-normal-contrast:0;
+--ml-scrollbar-normal-lightness-limit:0.32;
+--ml-scrollbar-normal-gray-saturation:0.05;
+--ml-scrollbar-normal-gray-hue:16;
+--ml-scrollbar-normal-replace-all-hues:false;
+--ml-scrollbar-normal-hue-gravity:0;
+--ml-scrollbar-active-saturation-limit:0.05;
+--ml-scrollbar-active-contrast:0;
+--ml-scrollbar-active-lightness-limit:0.28;
+--ml-scrollbar-active-gray-saturation:0.05;
+--ml-scrollbar-active-gray-hue:16;
+--ml-scrollbar-active-replace-all-hues:false;
+--ml-scrollbar-active-hue-gravity:0;
+--ml-image-saturation-limit:0.9;
+--ml-image-contrast:0.66;
+--ml-image-lightness-limit:0.8;
+--ml-image-gray-saturation:0.1;
+--ml-image-gray-hue:22;
+--ml-image-replace-all-hues:false;
+--ml-image-hue-gravity:0;
+--ml-svg-background-saturation-limit:0.8;
+--ml-svg-background-contrast:0.5;
+--ml-svg-background-lightness-limit:0.5;
+--ml-svg-background-gray-saturation:0.1;
+--ml-svg-background-gray-hue:190;
+--ml-svg-background-replace-all-hues:false;
+--ml-svg-background-hue-gravity:0;
+--ml-background-image-saturation-limit:0.8;
+--ml-background-image-contrast:0.5;
+--ml-background-image-lightness-limit:0.4;
+--ml-background-image-gray-saturation:0.05;
+--ml-background-image-gray-hue:200;
+--ml-background-image-replace-all-hues:false;
+--ml-background-image-hue-gravity:0;
+--ml-video-saturation-limit:1;
+--ml-video-contrast:0.5;
+--ml-video-lightness-limit:1;
+--ml-video-gray-saturation:0;
+--ml-video-gray-hue:0;
+--ml-video-replace-all-hues:false;
+--ml-video-hue-gravity:0;
+--ml-browser:Chrome!important;
+--ml-app-id:pbnndmlekkboofhnbonilimejonapojg;
+--ml-version:10.7.0;
+--ml-content-filter:'';
+--ml-blue-filter:'';
+--pdf-bg-filter:url("#pdf-bg-filter");
+--ml-invert:1!important;
+--ml-is-active:1!important;
+--ml-text-filter:saturate(0.7) brightness(0.86) hue-rotate(180deg) invert(1) brightness(0.9);
+--ml-contrast-text-filter:saturate(0.7) brightness(0.9) hue-rotate(180deg) invert(1) brightness(0.9);
+--ml-highlighted-text-filter:saturate(0.7) brightness(0.86) hue-rotate(180deg) invert(1) brightness(1);
+--ml-dynamic-content-text-filter:saturate(0.7) brightness(0.86) hue-rotate(180deg) invert(1) brightness(0.9);
+--ml-dynamic-content-contrast-text-filter:saturate(0.7) brightness(0.9) hue-rotate(180deg) invert(1) brightness(0.9);
+--ml-dynamic-content-highlighted-text-filter:saturate(0.7) brightness(0.86) hue-rotate(180deg) invert(1) brightness(1);
+--ml-image-filter:saturate(0.9) brightness(0.8);
+--ml-image-revert-filter:saturate(1.2);
+--ml-bg-image-revert-filter:saturate(1.1);
+--ml-button-revert-filter:saturate(1.1);
+--ml-text-revert-filter:saturate(1.2);
+--ml-video-revert-filter:saturate(1.3);
+--ml-bg-revert-filter:none; }</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style id="midnight-lizard-pseudo-styles">[before-style="background-image"]:not(imp)::before{filter:saturate(0.8) brightness(0.4)!important}
+[before-style="inverted-background-image"]:not(imp)::before{filter:saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1)!important}
+[after-style="background-image"]:not(imp)::after{filter:saturate(0.8) brightness(0.4)!important}
+[after-style="inverted-background-image"]:not(imp)::after{filter:saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1)!important}[before-style="1"]:not(imp)::before{--visited-color:rgb(209, 203, 199)!important;--visited-color-hover:rgb(209, 203, 199)!important;--visited-color-active:rgb(209, 203, 199)!important}
+[before-style="6"]:not(imp)::before{--visited-color:rgb(160, 117, 234)!important;--visited-color-hover:rgb(178, 144, 238)!important;--visited-color-active:rgb(157, 113, 234)!important}[before-style="8"]:not(imp)::before{--visited-color:rgb(159, 115, 234)!important;--visited-color-hover:rgb(177, 142, 238)!important;--visited-color-active:rgb(157, 113, 234)!important}</style><script id="midnight-lizard-page-script" type="text/javascript" src="chrome-extension://pbnndmlekkboofhnbonilimejonapojg/js/page-script.js"></script><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body style="background-color: rgb(34, 36, 37) !important; color: rgb(209, 203, 199) !important;" data-new-gr-c-s-check-loaded="14.996.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none; background-color: rgb(33, 35, 36) !important; color: rgb(208, 201, 198) !important; border-color: rgb(122, 106, 100) !important;"></div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false" style="background-color: rgb(28, 31, 43) !important; color: rgb(199, 200, 219) !important;">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/welcome.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Welcome to NB theme!</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/toc.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Rulebook</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/introduction.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[1] Introduction</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/theme_description.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[2] Theme Description</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/arena.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[3] Arena</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/sw_specifications.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[4] Software Specifications</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/theme_rules.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[5] Theme Rules</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/judging_and_scoring_system.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[6] Judging and Scoring System</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/rulebook/important_notes.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">[7] Important Notes</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_0.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 0</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/software_installation_ubuntu.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">(1a) Software Installation (Ubuntu)</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/software_installation_windows.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">(1b) Software Installation (Windows)</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/test_setup.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">(2) Test Setup</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/tutorials.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">(3) Learning Resources / Tutorials</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/assignment.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">(4) Solving Assignment</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item expanded " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_1.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 1</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item expanded " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html" class="active" tabindex="0" style="--link-color:rgb(130, 182, 222) !important; --link-color-hover:rgb(154, 196, 228) !important; --link-color-active:rgb(126, 180, 221) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(178, 144, 238) !important; --visited-color-active:rgb(157, 113, 234) !important;">CoppeliaSim Tutorials</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/explore_opencv.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">1A - Explore OpenCV</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/detect_and_encode_maze.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">1B - Detect and Encode Maze</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/design_ball_balance_platform.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">1C - Design Ball Balance Platform</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_2.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 2</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/develop_ball_track_algo.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">2A - Develop Ball Tracking Algorithm</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/generate_maze_in_coppeliasim.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">2B - Generate Maze in CoppeliaSim with Remote API</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_3.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 3</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/improving_your_design.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Tips and Tricks to improve your Ball Balancing Platform Design</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/control_systems.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Introduction to Control Systems</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/understanding_pid.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Understanding Proportional Integral Derivative (PID) Controller</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/balance_ball_on_platform.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Balance ball on platform</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_4.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 4</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/path_planning.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">4A - Path Planning</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/navigate_ball_on_platform.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">4B - Develop Ball Navigation Algorithm</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/theme_analysis_implementation.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">4C - Theme Analysis and Implementation</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_5.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Task 5</a><a class="toggle" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;"><div style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">❱</div></a></li><li style="color: rgb(194, 195, 213) !important;"><ol class="section"><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/perspective_with_open_maze.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Tutorial on Perspective Transform with Open Maze</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/progress_task.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Progress Task</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/scene_details.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Scene Details</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/grading_task_5.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">App for Grading of Progress Task</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/submission_instructions_task_5.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Submission Instructions</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li></ol></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/git_github.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Git and GitHub</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/live_session1_24_oct_2020.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Live Session 1 - 24th October 2020</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/live_session2_21_nov_2020.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Live Session 2 - 21st November 2020</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/live_session3_12_dec_2020.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Live Session 3 - 12th December 2020</a></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/live_session4_10_jan_2021.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Live Session 4 - 10th January 2021</a></li><li class="spacer" style="background-color: rgb(25, 29, 44) !important; color: rgb(193, 194, 212) !important;"></li><li class="chapter-item " style="color: rgb(194, 195, 213) !important;"><a href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/CHANGELOG.html" tabindex="0" style="--link-color:rgb(117, 182, 234) !important; --link-color-hover:rgb(148, 198, 239) !important; --link-color-active:rgb(113, 179, 234) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(181, 148, 239) !important; --visited-color-active:rgb(157, 113, 234) !important;">Changelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- <html>
+	<head>
+	<style>
+		
+	@media only screen and (max-width: 600px) {
+	  .eyrc_ckt{
+			display:none;
+		}
+	}
+
+	</style>
+	</head>
+	<body>
+		<div>
+		<center></center>
+			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+				<div >
+					<img src="https://portal.e-yantra.org/img/logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;" />
+				</div>
+				<div>
+					<img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/eyrc-header.svg" height="80px"  class="eyrc_ckt">
+				</div>
+				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+					Robotics Competition<br>
+					2020-21
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
+
+
+ -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px; background-color: rgb(5, 5, 8) !important; color: rgb(183, 172, 166) !important; border-color: rgb(91, 79, 74) rgb(91, 79, 74) rgb(5, 5, 8) !important;">
+                    <div style="width:100%">
+                        
+	
+	<style>
+		
+	@media only screen and (max-width: 600px) {
+	  .eyrc_ckt{
+			display:none;
+		}
+	}
+
+	</style>
+	
+	
+		<div>
+		<center></center>
+			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+				<div>
+					<img src="./CoppeliaSim Tutorials _files/logo.svg" alt="e-yantra_logo" height="40px" style="padding: 10px 15px; filter: saturate(0.9) brightness(0.8);">
+				</div>
+				<div>
+					<img src="./CoppeliaSim Tutorials _files/eyrc-header.svg" height="80px" class="eyrc_ckt" style="filter: saturate(0.9) brightness(0.8);">
+				</div>
+				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+					Robotics Competition<br>
+					2020-21
+				</div>
+			</div>
+			
+		</div>
+	
+
+
+
+
+                    </div>
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true" style="color: rgb(183, 172, 166) !important;">
+                            <i class="fa fa-bars" style="color: rgb(183, 172, 166) !important;"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list" style="color: rgb(183, 172, 166) !important;">
+                            <i class="fa fa-paint-brush" style="color: rgb(183, 172, 166) !important;"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu" style="background-color: rgb(5, 5, 8) !important; color: rgb(203, 196, 192) !important; border-color: rgb(91, 79, 74) !important;">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar" style="color: rgb(183, 172, 166) !important;">
+                            <i class="fa fa-search" style="color: rgb(183, 172, 166) !important;"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">eYRC 2020-21: Nirikshak Bot (NB)</h1>
+
+                    <div class="right-buttons">
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header" style="background-color: rgb(29, 29, 41) !important; --placeholder-color:rgba(232, 229, 227, 0.6) !important; color: rgb(208, 201, 198) !important; border-color: rgb(122, 106, 100) !important;">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden" style="border-color: rgb(93, 94, 132) rgb(93, 94, 132) rgb(123, 107, 101) !important;">
+                        <div id="searchresults-header" class="searchresults-header" style="color: rgb(209, 203, 199) !important;"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- <center><img src="http://mooc.e-yantra.org/img/eYantra_logo.svg" alt="e-yantra_logo" style="scale:75%;" /></center> -->
+<style>
+.back{
+	position: fixed;
+	width: 250px;
+	height: 250px;
+	top: 50%;
+	left: 50%;
+    margin-top: auto; 
+    margin-left: auto; 
+	opacity: 0.15;
+    z-index: -1;
+	}
+</style>
+<!-- <img src="http://mooc.e-yantra.org/img/EyantraLogoMini.png" class="back"> -->
+<center>
+    <h1><a class="header" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html#task-1" id="task-1" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">Task 1</a></h1>
+    <h1><a class="header" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html#coppeliasim-tutorials" id="coppeliasim-tutorials" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">CoppeliaSim Tutorials</a></h1>
+</center>
+<center>[ <i>Last Updated on: <b>26th October 2020, 18:54 Hrs</b></i> ]</center>
+<hr style="border-color: rgb(93, 94, 132) !important;">
+<br>
+<p>This document contains video links for the Tutorials on CoppeliaSim created by <em style="color: rgb(234, 234, 240) !important;"><strong>e-Yantra Team</strong></em>.</p>
+<h2><a class="header" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html#a-getting-started-with-coppeliasim---part-1" id="a-getting-started-with-coppeliasim---part-1" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">A. Getting started with CoppeliaSim - Part 1</a></h2>
+<ul>
+<li>
+<p>This video introduces the basics of CoppeliaSim software.</p>
+</li>
+<li>
+<p>Teams will learn about Features, User Interface, Pages, Views, Scenes, Camera Navigation, Position/Orientation Manipulation, Simulation Settings, Scripts, User Settings, Collections, Layers, Video Recorder, Scene Object Properties etc.</p>
+<iframe width="710" height="315" src="./CoppeliaSim Tutorials _files/i06BD7Et1Z0.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="z-index: 5; position: relative; border-color: rgb(93, 94, 132) !important;"></iframe>
+</li>
+</ul>
+<h2><a class="header" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html#b-getting-started-with-coppeliasim---part-2" id="b-getting-started-with-coppeliasim---part-2" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">B. Getting started with CoppeliaSim - Part 2</a></h2>
+<ul>
+<li>
+<p>This video continues to teach about the basics of CoppeliaSim software.</p>
+</li>
+<li>
+<p>Teams will learn about Object Properties, Joints, Dynamic Properties, Force Sensors, Dummies, Linked Dummies, Getting familiar with e-Yantra's Robotic Arm and much more.</p>
+<iframe width="710" height="315" src="./CoppeliaSim Tutorials _files/goFiqW3C7DY.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="z-index: 5; position: relative; border-color: rgb(93, 94, 132) !important;"></iframe>
+</li>
+</ul>
+<h2><a class="header" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/coppeliasim_tutorials.html#c-python-remote-apis" id="c-python-remote-apis" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">C. Python Remote APIs</a></h2>
+<ul>
+<li>
+<p>Teams will learn to control the e-Yantra's Robotic Arm in CoppeliaSim software using a basic Lua script and Legacy Python Remote API script.</p>
+<iframe width="710" height="315" src="./CoppeliaSim Tutorials _files/MIR-Qt6xIJ0.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="z-index: 5; position: relative; border-color: rgb(93, 94, 132) !important;"></iframe>
+</li>
+</ul>
+<br>
+<hr style="border-color: rgb(93, 94, 132) !important;">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left" style="background-color: rgb(28, 31, 43) !important; --link-color:rgb(130, 182, 222) !important; --link-color-hover:rgb(154, 196, 228) !important; --link-color-active:rgb(126, 180, 221) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(178, 144, 238) !important; --visited-color-active:rgb(157, 113, 234) !important;">
+                                <i class="fa fa-angle-left" before-style="6" style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(178, 144, 238) !important; --visited-color-active:rgb(157, 113, 234) !important;"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/explore_opencv.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right" style="background-color: rgb(28, 31, 43) !important; --link-color:rgb(130, 182, 222) !important; --link-color-hover:rgb(154, 196, 228) !important; --link-color-active:rgb(126, 180, 221) !important; --visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(178, 144, 238) !important; --visited-color-active:rgb(157, 113, 234) !important;">
+                                <i class="fa fa-angle-right" before-style="6" style="--visited-color:rgb(160, 117, 234) !important; --visited-color-hover:rgb(178, 144, 238) !important; --visited-color-active:rgb(157, 113, 234) !important;"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/task_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left" style="transition-property: -background-color, -color !important; --link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">
+                        <i class="fa fa-angle-left" style="--visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;" before-style="1"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://portal.e-yantra.org/storage/ryMPCVnKgx_nb/explore_opencv.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right" style="--link-color:rgb(209, 203, 199) !important; --link-color-hover:rgb(209, 203, 199) !important; --link-color-active:rgb(209, 203, 199) !important; --visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important;">
+                        <i class="fa fa-angle-right" before-style="1" style="--visited-color:rgb(209, 203, 199) !important; --visited-color-hover:rgb(209, 203, 199) !important; --visited-color-active:rgb(209, 203, 199) !important; color: rgb(209, 203, 199) !important;"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-145861739-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./CoppeliaSim Tutorials _files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./CoppeliaSim Tutorials _files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./CoppeliaSim Tutorials _files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./CoppeliaSim Tutorials _files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./CoppeliaSim Tutorials _files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./CoppeliaSim Tutorials _files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+<div id="weava-permanent-marker" date="1613498501746"></div><div id="weava-ui-wrapper"><div class="weava-drop-area-wrapper" style="background-color: rgb(20, 38, 49) !important; color: rgb(208, 201, 198) !important;"><div class="weava-drop-area" style="background-color: rgb(20, 38, 49) !important;"></div>
+<div class="weava-drop-area-text" style="background-color: rgb(20, 38, 49) !important; color: rgb(208, 201, 198) !important;">Drop here!</div>
+</div></div></body><svg id="midnight-lizard-filters" style="height: 0px; width: 0px; position: absolute;"><filter id="ml-blue-filter" color-interpolation-filters="sRGB" x="0" y="0" width="99999" height="99999"></filter><filter id="ml-content-filter" color-interpolation-filters="sRGB" x="0" y="0" width="99999" height="99999"></filter><filter id="pdf-bg-filter" color-interpolation-filters="sRGB" x="0" y="0" width="99999" height="99999"><fecomponenttransfer><fefuncr type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"></fefuncr><fefuncg type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"></fefuncg><fefuncb type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"></fefuncb></fecomponenttransfer><fecolormatrix result="selectedColor" type="matrix" values="1 0 0 0 0
+                                               0 1 0 0 0
+                                               0 0 1 0 0
+                                               1 1 1 1 -3"></fecolormatrix><feflood flood-color="rgb(240, 240, 240)"></feflood><fecomposite operator="in" in2="selectedColor"></fecomposite><fecomposite operator="over" in2="SourceGraphic"></fecomposite></filter></svg></html>
