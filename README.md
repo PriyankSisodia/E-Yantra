@@ -74,9 +74,17 @@ Teams will be provided with the following files before the start of theme run:
     \- These are the image files of the mazes to be generated on top of the  four Platform Tables. These files are named according to the Platform  Table on which that particular maze is to be generated.
 
    - **`maze_t1.jpg`** - to be generated on **T1**
+   - ![image](https://user-images.githubusercontent.com/60649678/110343512-90cd9d80-8052-11eb-871a-f4c507504efc.png)
+
    - **`maze_t2.jpg`** - to be generated on **T2**
+   - ![image](https://user-images.githubusercontent.com/60649678/110343494-8dd2ad00-8052-11eb-9b78-d351369eba22.png)
+
    - **`maze_t3.jpg`** - to be generated on **T3**
+   - ![image](https://user-images.githubusercontent.com/60649678/110343503-8f9c7080-8052-11eb-9d4e-c3e4b2c60e70.png)
+
    - **`maze_t4.jpg`** - to be generated on **T4**
+   - ![image](https://user-images.githubusercontent.com/60649678/110343276-59f78780-8052-11eb-883b-67546bde0a5e.png)
+
 
 #### JSON File Description
 
@@ -127,11 +135,8 @@ the **resultant maze** on **T4** should resemble
 | **T1** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12a_resultant_maze_on_T1.png" alt="12a_resultant_maze_on_T1" style="zoom: 50%;" /> |
 | ------ | ------------------------------------------------------------ |
 | **T2** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12b_resultant_maze_on_T2.png" alt="12b_resultant_maze_on_T2" style="zoom:50%;" /> |
-| ------ | ------------------------------------------------------------ |
 | **T3** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12c_resultant_maze_on_T3.png" alt="12c_resultant_maze_on_T3" style="zoom:50%;" /> |
-
 The **ENTRY** and **EXIT** cells for **T1**, **T2**, **T3** and **T4** will remain same irrespective of the maze images.
-| ------ | ------------------------------------------------------------ |
 
 ## Theme Rules
 
