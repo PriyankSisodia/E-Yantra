@@ -124,12 +124,14 @@ the **resultant maze** on **T4** should resemble
 
 ![10_resultant_maze_on_T4](https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/10_resultant_maze_on_T4.png)
 
-| T1     | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12a_resultant_maze_on_T1.png" alt="12a_resultant_maze_on_T1" style="zoom: 50%;" /> |
+| **T1** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12a_resultant_maze_on_T1.png" alt="12a_resultant_maze_on_T1" style="zoom: 50%;" /> |
 | ------ | ------------------------------------------------------------ |
 | **T2** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12b_resultant_maze_on_T2.png" alt="12b_resultant_maze_on_T2" style="zoom:50%;" /> |
+| ------ | ------------------------------------------------------------ |
 | **T3** | <img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/rb/12c_resultant_maze_on_T3.png" alt="12c_resultant_maze_on_T3" style="zoom:50%;" /> |
 
 The **ENTRY** and **EXIT** cells for **T1**, **T2**, **T3** and **T4** will remain same irrespective of the maze images.
+| ------ | ------------------------------------------------------------ |
 
 ## Theme Rules
 
