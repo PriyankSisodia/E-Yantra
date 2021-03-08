@@ -169,3 +169,10 @@ The **ENTRY** and **EXIT** cells for **T1**, **T2**, **T3** and **T4** will rema
 - The score of both runs will be recorded and best of two runs will be considered as the team's final score.
 
   > May the *PID* be with you! 😛
+  > 
+Our final video submissions are here:
+IN original configuration
+- https://www.youtube.com/watch?v=eb-WlWGPqM0
+
+IN bonus configuration
+- https://www.youtube.com/watch?v=4YjpY56jcHY
