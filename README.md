@@ -58,17 +58,8 @@ Teams will be provided with the following files before the start of theme run:
 3. **`ball_details.json`** - This JSON file provides the details of all balls that will be dispensed by the **BD**. The **color** and the **drop location** (i.e. a particular Collection Box) of each ball will be specified.
 
 4. `maze_t1.jpg`
-
-   , 
-
    `maze_t2.jpg`
-
-   , 
-
    `maze_t3.jpg`
-
-    and 
-
    `maze_t4.jpg`
 
     \- These are the image files of the mazes to be generated on top of the  four Platform Tables. These files are named according to the Platform  Table on which that particular maze is to be generated.
