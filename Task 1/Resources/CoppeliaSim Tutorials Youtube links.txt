@@ -1,8 +1,0 @@
-A. Getting started with CoppeliaSim - Part 1
-----https://www.youtube.com/watch?v=i06BD7Et1Z0&feature=emb_logo
-
-B. Getting started with CoppeliaSim - Part 2
-----https://www.youtube.com/watch?v=goFiqW3C7DY&feature=emb_logo
-
-C. Python Remote APIs - Part 3
-----https://www.youtube.com/watch?v=MIR-Qt6xIJ0&feature=emb_logo
